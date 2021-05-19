@@ -36,6 +36,7 @@ namespace Demo
                 // inject service instances here (order doesn't important), for example:
                 .Inject(GetComponent<IViewService>())
                 .Inject(GetComponent<IInputService>())
+                .Inject(new Rnd(0))
                 .Init();
         }
 

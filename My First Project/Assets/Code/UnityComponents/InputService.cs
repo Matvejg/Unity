@@ -23,7 +23,31 @@ namespace Demo
             {
                 _isLeft = false;
             }
-        }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                _isRight = true;
+            } 
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                _isRight = false;
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                _isForward = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.W))
+            {
+                _isForward = false;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                _isBackward = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.S))
+            {
+                _isBackward = false;
+            }
+        }    
 
         public bool GetOffset(out Int3 offset)
         {
@@ -32,13 +56,43 @@ namespace Demo
             int x = 0;
             int y = 0;
             int z = 0;
-            if (_isLeft)
+            //if (_isLeft)
+            //{
+            //    x = x - 1;
+            //}
+            //if (_isRight)
+            //{
+            //    x = x + 1
+            //}
+            //if (_isForward)
+            //{
+            //    z = z + 1 
+            //}
+            //if (_)
+            if (Input.GetKeyDown(KeyCode.A))
+
             {
                 x = x - 1;
             }
+            if (Input.GetKeyDown(KeyCode.D))
 
+            {
+                x = x + 1;
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+
+            {
+                z = z + 1;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+
+            {
+                z = z - 1;
+            }
             offset = new Int3(x, y, z);
             return offset != Int3.Zero;
         }
     }
 }
+
+

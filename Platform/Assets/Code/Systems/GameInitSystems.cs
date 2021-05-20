@@ -43,17 +43,26 @@ sealed class GameInitSystems : IEcsInitSystem
     public void Init()
     {
         var levelJson = Resources.Load<TextAsset>("Levels/Level01");
-        var level = JsonUtility.FromJson<LevelModel>(levelJson.text);
-        for (int y = 0; y < level.data.Length; y++)
+        var levelData = JsonUtility.FromJson<LevelModel>(levelJson.text);
+
+        var levelEntity = _world.NewEntity();
+        var level = new Level
         {
-            var line = level.data[y];
+            size = new Int2(levelData.data.Length, levelData.data[0].Length)
+        };
+        level.data = new GameObjectEnum[level.size.Y * level.size.X];
+        levelEntity.Replace(level);
+        
+        for (int y = 0; y < levelData.data.Length; y++)
+        {
+            var line = levelData.data[y];
             for (int x = 0; x < line.Length; x++)
             {
                 if (CreateObject(line[x], out var e))
                 {
                     e.Replace(new Position
                     {
-                        Value = new Int2(x, level.data.Length - y - 1)
+                        Value = new Int2(x, level.size.Y - y - 1)
                     });
                 }
             }

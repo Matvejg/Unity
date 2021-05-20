@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{50F09B44-A13D-B696-1B9A-C2E5C7DEA92E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -87,11 +86,13 @@
     <Compile Include="Assets\Code\LevelModel.cs" />
     <Compile Include="Assets\Code\Components\ObjectType.cs" />
     <Compile Include="Assets\Code\GameObjectEnum.cs" />
+    <Compile Include="Assets\Code\Components\LevelExtension.cs" />
+    <Compile Include="Assets\Code\Components\Level.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\DOTween\readme.txt" />
-    <None Include="Assets\DOTween\DOTween.dll" />
-    <None Include="Assets\DOTween\DOTween.XML" />
+     <None Include="Assets\DOTween\readme.txt" />
+     <None Include="Assets\DOTween\DOTween.dll" />
+     <None Include="Assets\DOTween\DOTween.XML" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

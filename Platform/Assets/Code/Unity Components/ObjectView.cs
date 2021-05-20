@@ -10,6 +10,6 @@ public class ObjectView: MonoBehaviour, IView
         transform.DOKill();
         transform.DOLocalMove(new Vector3(x, y), GameOptions.PlayerMoveSpeed)
             //.SetSpeedBased(true)
-            .SetEase(Ease.OutSine);
+            .SetEase(Ease.Linear);
     }
 }

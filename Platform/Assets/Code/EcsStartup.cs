@@ -20,12 +20,15 @@ public class EcsStartup : MonoBehaviour
 #endif
         _systems
             .Add(new GameInitSystems() )
+
+            .Add(new InputSystem())
             .Add(new UpdatePlayerMoveTimerSystem())
-            .Add(new InputSystem() )
+            .Add(new MovePlayerSystem())
 
             .Add(new CreateViewSystem() )
             .Add(new MoveViewSystem() )
 
+            .OneFrame<Ecs.Input>()
             .OneFrame<UpdatePositionFlag>()
 
             .Inject(GetComponent<IViewService>())

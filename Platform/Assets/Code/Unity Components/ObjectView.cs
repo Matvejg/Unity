@@ -8,7 +8,7 @@ public class ObjectView: MonoBehaviour, IView
     public void UpdatePosition(int x, int y)
     {
         transform.DOKill();
-        transform.DOMove(new Vector3(x, y), GameOptions.PlayerMoveSpeed)
+        transform.DOLocalMove(new Vector3(x, y), GameOptions.PlayerMoveSpeed)
             //.SetSpeedBased(true)
             .SetEase(Ease.OutSine);
     }

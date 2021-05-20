@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{50F09B44-A13D-B696-1B9A-C2E5C7DEA92E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -56,19 +57,41 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\EcsStartup.cs" />
-    <Compile Include="Assets\Code\Systems\InputSystem.cs" />
-    <Compile Include="Assets\Code\Services\IInputService.cs" />
-    <Compile Include="Assets\Code\Services\IViewService.cs" />
-    <Compile Include="Assets\Code\Systems\CreateViewSystem.cs" />
-    <Compile Include="Assets\Code\Systems\GameInitSystems.cs" />
-    <Compile Include="Assets\Code\IView.cs" />
-    <Compile Include="Assets\Code\Unity Components\ViewService.cs" />
-    <Compile Include="Assets\Code\Unity Components\ObjectView.cs" />
-    <Compile Include="Assets\Code\Components\Position.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Code\Components\UpdatePositionFlag.cs" />
+    <Compile Include="Assets\Code\Systems\MovePlayerSystem.cs" />
+    <Compile Include="Assets\Code\Unity Components\InputService.cs" />
     <Compile Include="Assets\Code\Components\View.cs" />
+    <Compile Include="Assets\Code\Services\IViewService.cs" />
+    <Compile Include="Assets\Code\Components\Input.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Code\Systems\InputSystem.cs" />
+    <Compile Include="Assets\Code\Systems\UpdatePlayerMoveTimerSystem.cs" />
+    <Compile Include="Assets\Code\Unity Components\ViewService.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Code\Components\Timer.cs" />
+    <Compile Include="Assets\Code\Services\IInputService.cs" />
+    <Compile Include="Assets\Code\Systems\GameInitSystems.cs" />
+    <Compile Include="Assets\Code\GameOptions.cs" />
+    <Compile Include="Assets\Code\Systems\View\CreateViewSystem.cs" />
+    <Compile Include="Assets\Code\Components\PlayerTag.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Code\Components\Position.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Code\EcsStartup.cs" />
+    <Compile Include="Assets\Code\Systems\View\MoveViewSystem.cs" />
+    <Compile Include="Assets\Code\IView.cs" />
+    <Compile Include="Assets\Code\Unity Components\ObjectView.cs" />
+    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Code\LevelModel.cs" />
+    <Compile Include="Assets\Code\Components\ObjectType.cs" />
+    <Compile Include="Assets\Code\GameObjectEnum.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\DOTween\readme.txt" />
+    <None Include="Assets\DOTween\DOTween.dll" />
+    <None Include="Assets\DOTween\DOTween.XML" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -290,6 +313,9 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.3f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>

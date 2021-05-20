@@ -1,4 +1,4 @@
 ﻿internal interface IViewService
 {
-    IView CreateView(int x, int y);
+    IView CreateView(int x, int y, GameObjectEnum type);
 }

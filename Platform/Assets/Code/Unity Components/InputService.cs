@@ -26,7 +26,7 @@ public class InputService : MonoBehaviour, IInputService
         {
             offset.Set(offset.X, 1);
         }
-        Debug.Log($"H: {Input.GetAxis("Horizontal")} ({offset.X}), V: {Input.GetAxis("Vertical")} ({offset.Y})");
+        //Debug.Log($"H: {Input.GetAxis("Horizontal")} ({offset.X}), V: {Input.GetAxis("Vertical")} ({offset.Y})");
 
         return offset.X != 0 || offset.Y != 0;
     }

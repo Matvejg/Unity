@@ -2,10 +2,11 @@
 using Leopotam.Ecs;
 using Leopotam.Ecs.Types;
 using System.Linq;
+using UnityEngine;
 
 sealed class MovePlayerSystem : IEcsRunSystem
 {
-    readonly EcsFilter<Input> _input = default;
+    readonly EcsFilter<Ecs.Input> _input = default;
     readonly EcsFilter<Level> _level = default;
     readonly EcsFilter<Position, ObjectType> _objects = default;
     readonly EcsFilter<Position, PlayerTag>.Exclude<Timer> _player = default;
@@ -35,28 +36,29 @@ sealed class MovePlayerSystem : IEcsRunSystem
                 level.data[index] = t;
             }
         }
-
-        foreach (var i in _player)
+        if (!_player.IsEmpty())
         {
-            ref var p = ref _player.Get1(i).Value;
+            ref var p = ref _player.Get1(0).Value;
             var newPos = new Int2(p.X + offset.X, p.Y + offset.Y);
             if (level.CanMove(newPos.X, p.Y))
             {
-                p.Set(newPos.X, p.Y);
-                var e = _player.GetEntity(i);
-                e.Get<UpdatePositionFlag>();
-                e.Replace(new Timer { Value = GameOptions.PlayerMoveSpeed });
+                SetPos(ref p, newPos.X, p.Y);
                 return;
             }
 
             if (level.CanMove(p.X, newPos.Y))
             {
-                p.Set(p.X, newPos.Y);
-                var e = _player.GetEntity(i);
-                e.Get<UpdatePositionFlag>();
-                e.Replace(new Timer { Value = GameOptions.PlayerMoveSpeed });
+                SetPos(ref p, p.X, newPos.Y);
                 return;
             }
         }
+    }
+
+    private void SetPos(ref Int2 p, int x, int y)
+    {
+        p.Set(x, y);
+        ref var e = ref _player.GetEntity(0);
+        e.Get<UpdatePositionFlag>();
+        e.Replace(new Timer { Value = GameOptions.PlayerMoveSpeed });
     }
 }

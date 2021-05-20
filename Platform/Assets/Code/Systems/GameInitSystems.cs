@@ -10,6 +10,7 @@ sealed class GameInitSystems : IEcsInitSystem
     public void Init()
     {
         var e = _world.NewEntity();
+        e.Get<PlayerTag>();
         e.Replace(new Position { 
             Value = new Int2(0,0)
         });

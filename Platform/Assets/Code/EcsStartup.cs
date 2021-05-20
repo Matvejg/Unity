@@ -1,3 +1,4 @@
+using Ecs;
 using Leopotam.Ecs;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,11 +19,17 @@ public class EcsStartup : MonoBehaviour
         Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_systems);
 #endif
         _systems
-            .Add(new GameInitSystems())
+            .Add(new GameInitSystems() )
+            .Add(new UpdatePlayerMoveTimerSystem())
+            .Add(new InputSystem() )
 
-            .Add(new CreateViewSystem())
+            .Add(new CreateViewSystem() )
+            .Add(new MoveViewSystem() )
+
+            .OneFrame<UpdatePositionFlag>()
 
             .Inject(GetComponent<IViewService>())
+            .Inject(GetComponent<IInputService>())
             .Init();
 
     }
